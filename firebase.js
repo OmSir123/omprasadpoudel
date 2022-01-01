@@ -26,21 +26,26 @@
 
 
     //Refrences
-
-    var name=document.getElementById('name');
-    var email=document.getElementById('email');
-    var subject=document.getElementById('subject');
-    var message=document.getElementById('message')
-
+    
     function InsertData(){
-        if(name.value==""){
+        
+        var name=document.getElementById('name').value;
+        var email=document.getElementById('email').value;
+        var subject=document.getElementById('subject').value;
+        var message=document.getElementById('message').value;
+
+        let newName=name.trim();
+        let newEmail=name.trim();
+        
+        
+        if(newName==""){
             document.getElementById('errormsg').style.color='red';
             document.getElementById('errormsg').innerText='Please Fill Your Name';       
-        }else if(email.value==""){
+        }else if(newEmail==""){
             document.getElementById('errormsg').style.color='red';
             document.getElementById('errormsg').innerText='Please Fill Your Email';       
             
-        }else if(message.value==""){
+        }else if(message==""){
             document.getElementById('errormsg').style.color='red';
             document.getElementById('errormsg').innerText='Please Fill Your message';       
             
@@ -61,15 +66,15 @@
             })
             .catch((error)=>{
                 document.getElementById('errormsg').style.color='red';
-                document.getElementById('errormsg').innerText='sorry something went wrong';       
+                document.getElementById('errormsg').innerText='sorry something went wrong '+error;       
                 
             });
             
     
             }
 
-        }
         
+    }
 
     document.getElementById('btnsendmsg').addEventListener('click',InsertData)
 
